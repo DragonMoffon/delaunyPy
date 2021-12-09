@@ -54,7 +54,7 @@ def calc_area(vertices, points):
     point_1 = points[vertices[0]]
     point_2 = points[vertices[1]]
     point_3 = points[vertices[2]]
-    return 0.5*((point_2.x-point_1.x)(point_3.y-point_1.y) - (point_3.x-point_1.x)(point_2.y-point_1.y))
+    return 0.5*((point_2.x-point_1.x)*(point_3.y-point_1.y) - (point_3.x-point_1.x)*(point_2.y-point_1.y))
 
 
 class Triangle:
