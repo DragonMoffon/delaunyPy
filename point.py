@@ -99,6 +99,8 @@ def create_grid_points(grid_width: int, grid_height: int, seed: float = None) ->
         seed = time()
     random.seed(seed)
     points = []
+    x_base = []
+    y_base = []
     for x in range(int(-grid_width/2), int(grid_width/2)):
         current_points = []
         for y in range(int(-grid_height/2), int(grid_height/2)):
@@ -115,6 +117,16 @@ def create_grid_points(grid_width: int, grid_height: int, seed: float = None) ->
                 point_x = x+1
             else:
                 point_x = x + random.random()
+
+            if y == int(-grid_height/2):
+                x_base.append(point_x)
+            elif y == int(grid_height/2):
+                point_x = x_base[x+int(grid_width/2)]
+
+            if x == int(-grid_height/2):
+                y_base.append(point_y)
+            elif x == int(grid_height/2):
+                point_y = y_base[y+int(grid_width/2)]
 
             point = Point(point_x/grid_width, point_y/grid_height)
             for index, compare_point in enumerate(current_points):
