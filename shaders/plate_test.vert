@@ -1,5 +1,12 @@
-#version 120
+#version 330
+
+in vec2 in_pos;
+in float plate;
+
+out vec3 colour;
 
 void main() {
-    gl_Position = vec4(vec3(0.0), 1.0);
+    colour = vec3(in_pos + 0.5, plate);
+    gl_Position = vec4(2*in_pos, 0.0, 1.0);
 }
+
